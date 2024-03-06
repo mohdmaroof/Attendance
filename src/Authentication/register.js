@@ -44,7 +44,7 @@ const Register = () => {
                   alt='WFM Technologies'
                 />
                 <h5 className='mb-4'>We are The WFM Team </h5>
-                <p>Please login to your account</p>
+                <p>Please register here..</p>
               </Col>
             </Row>
 
@@ -60,6 +60,7 @@ const Register = () => {
                         type='name'
                         name='name'
                         placeholder='Name'
+                        autoComplete='off'
                         required
                         onChange={handleChange}
                       />
@@ -71,6 +72,7 @@ const Register = () => {
                       <Form.Control
                         type='email'
                         name='email'
+                        autoComplete='off'
                         placeholder='name@example.com'
                         required
                         onChange={handleChange}
@@ -82,6 +84,7 @@ const Register = () => {
                       <Form.Control
                         type='password'
                         name='password'
+                        autoComplete='off'
                         placeholder='Password'
                         className='mb-3'
                         required
@@ -92,9 +95,10 @@ const Register = () => {
                       controlId='floatingConfirmPassword'
                       label='Confirm Password'>
                       <Form.Control
-                        type='confirmPassword'
+                        type='password'
                         name='confirmPassword'
                         placeholder='Confirm Password'
+                        autoComplete='off'
                         required
                         onChange={handleChange}
                       />
@@ -105,6 +109,11 @@ const Register = () => {
                           <Button
                             variant='outline-primary'
                             type='submit'
+                            disabled={
+                              regDetails.password !== regDetails.confirmPassword
+                                ? true
+                                : false
+                            }
                             className='gradient-login-1 text-uppercase btn-login'>
                             Sign Up
                           </Button>
